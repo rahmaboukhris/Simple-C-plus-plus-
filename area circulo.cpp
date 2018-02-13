@@ -10,7 +10,7 @@ int main (void){
 float pre_resultado, resultado_area;
 int raio,perimetro;
 
-			cout << "Olá, vamos calcular" << endl;
+			cout << "OlÃ¡, vamos calcular!" << endl;
 			cout << "* area de um ciruculo" << endl;
 			cout << "* perimetro de um circulo." <<endl << endl;
 
@@ -23,7 +23,7 @@ int raio,perimetro;
 		perimetro = ((2*314)*raio);
 		
 	cout << "Area do Circulo: " << resultado_area;
-	cout << "cm²" << endl;
+	cout << "cmÂ²" << endl;
 	cout << "O Perimetro do Circulo: " << perimetro;
 	cout << "cm";
 	
