@@ -1,7 +1,7 @@
 #include<iostream>
 #include<locale> //BIBLIOTECA DE IDIOMAS
 //atividade 02
-// PROGRAMA PARA SOMAR DOIS NUMEROS
+// PROGRAMA PARA SOMAR QUATRO NUMEROS
 using namespace std;
 
 int main (){
@@ -10,7 +10,7 @@ int main (){
 	int number1, number2, number3, number4; 
 	int soma;
 
-		cout << "Olá, iremos realizar uma soma" << endl << "Digite um numero: ";
+		cout << "OlÃ¡, iremos realizar uma soma" << endl << "Digite um numero: ";
 		cin >> number1; 
 
 		cout << "Digite mais um numero: ";
@@ -19,12 +19,12 @@ int main (){
 		cout << "Digite outro numero: ";
 		cin >> number3;
 		
-		cout << "Digite só mais um numero: ";
+		cout << "Digite sÃ³ mais um numero: ";
 		cin >> number4;
 
 			soma = number1+number2+number3+number4;
 
-		cout << "Aguarde um momento..." << endl << "A soma é igual a: " << soma;
+		cout << "Aguarde um momento..." << endl << "A soma Ã© igual a: " << soma;
 
 system("PAUSE >> NULL");
 return 0;	
