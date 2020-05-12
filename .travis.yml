@@ -8,12 +8,14 @@ install:
   - go get -u gopkg.in/alecthomas/gometalinter.v2
   - $GOPATH/bin/gometalinter.v2 --install
   - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip 
-  
+  - unzip sonar-scanner-cli-4.2.0.1873-linux.zip 
   - rm sonar-scanner-cli-4.2.0.1873-linux.zip 
   - mv sonar-scanner-4.2.0.1873-linux sonar-scanner 
-  - wget 192.168.1.5:9000/static/cpp/build-wrapper-linux-x86.zip
+  - wget https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
   - unzip build-wrapper-linux-x86.zip
-  - cd build-wrapper-linux-x86
+  - rm build-wrapper-linux-x86.zip 
+  - mv build-wrapper-linux-x86 build-wrapper
+ 
 addons:
   sonarcloud:
     organization: "rahmaboukhris"
@@ -22,8 +24,7 @@ addons:
 script:
   # Execute Go Meta Linter
   - $GOPATH/bin/gometalinter.v2 samples/ > gometalinter-report.out || true
-  - build-wrapper-linux-x86-64 --out-dir bw_output make clean
-
+  - build-wrapper/build-wrapper-linux-x86-64 --out-dir bw_output make clean all 
   # Execute tests and coverage
   # And then execute SonarCloud analysis which will run its own code analysis, and also reuse the linters' results
   - sonar-scanner/bin/sonar-scanner -Dsonar.organization=rahmaboukhris -Dsonar.projectKey=testmanual -Dsonar.projectName=testmanual -Dsonar.cfamily.build-wrapper-output=bw_output
