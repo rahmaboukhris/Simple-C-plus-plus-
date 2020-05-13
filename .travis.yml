@@ -20,13 +20,10 @@ addons:
 
 script:
   # Execute Go Meta Linter
- - mkdir build
-  - cd build
-  - cmake ..
-  - cd ..
+
   # Wraps the compilation with the Build Wrapper to generate configuration (used
   # later by the SonarQube Scanner) into the "bw-output" folder
-  - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
+  - build-wrapper-linux-x86-64 --out-dir bw_output make sonar-scanner
   # Execute tests and coverage
   # And then execute SonarCloud analysis which will run its own code analysis, and also reuse the linters' results
   - sonar-scanner/bin/sonar-scanner -Dsonar.organization=rahmaboukhris -Dsonar.projectKey=testmanual -Dsonar.projectName=testmanual -Dsonar.cfamily.build-wrapper-output=bw_output
