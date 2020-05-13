@@ -10,7 +10,7 @@ install:
   - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip 
   - unzip sonar-scanner-cli-4.2.0.1873-linux.zip 
   - rm sonar-scanner-cli-4.2.0.1873-linux.zip 
-  - mv sonar-scanner-4.2.0.1873-linux sonar-scanne
+  - mv sonar-scanner-4.2.0.1873-linux sonar-scanner
  
  
 addons:
@@ -21,9 +21,13 @@ addons:
 script:
   # Execute Go Meta Linter
 
-  # Wraps the compilation with the Build Wrapper to generate configuration (used
-  # later by the SonarQube Scanner) into the "bw-output" folder
-  - build-wrapper-linux-x86-64 --out-dir bw_output make sonar-scanner
+ - cd build-wrapper-linux-x86
+ - pwd
+ - cd …
+ - pwd
+ - ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 --out-dir bw_output make clean all
+
+
   # Execute tests and coverage
   # And then execute SonarCloud analysis which will run its own code analysis, and also reuse the linters' results
   - sonar-scanner/bin/sonar-scanner -Dsonar.organization=rahmaboukhris -Dsonar.projectKey=testmanual -Dsonar.projectName=testmanual -Dsonar.cfamily.build-wrapper-output=bw_output
