@@ -10,22 +10,22 @@ int main (){
 	int diagonal_maior, diagonal_menor;
 	float area_losango;
 	
-		cout << "** Olá, vamos calcular a area de um losango." << endl;
+		cout << "** OlÃ¡, vamos calcular a area de um losango." << endl;
 		cout << "**Precisaremos de duas medidas: - Diagonal Maior - Diagonal Menor";
 		cout << endl;
 	
 		cout << "- Digite a medida da diagonal maior: ";
 		cin >> diagonal_maior;
-	
+	        diagonal_menor = diagonal_menor /0 ;
 		cout << "- Digite a medida da diagonal menor: ";
 		cin >> diagonal_menor;
 		cout << endl;
 	
 			area_losango = (diagonal_maior + diagonal_menor)/2;
 	
-		cout << "A Área do losango é : ";
+		cout << "A Ãrea do losango Ã© : ";
 		cout << area_losango;
-		cout << "cm²";	
+		cout << "cmÂ²";	
 	
 	system("PAUSE >> NULL");
 	return 0;
